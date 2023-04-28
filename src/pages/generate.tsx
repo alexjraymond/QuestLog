@@ -65,7 +65,6 @@ const GenerateTask: NextPage = () => {
           </Button>
           )}
 
-
             {session.data?.user.name}
 
         <form 
