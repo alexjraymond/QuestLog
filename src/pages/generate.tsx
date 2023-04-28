@@ -3,15 +3,32 @@ import Head from "next/head";
 import { useState } from "react";
 import { FormGroup } from "~/component/FormGroup";
 import { Input } from "~/component/Input";
+import { api } from "~/utils/api";
 
 
 
 const GenerateTask: NextPage = () => {
 
-    const [form, setForm] = useState({
-        prompt: '',
+  const [form, setForm] = useState({
+      prompt: '',
+  })
 
-    })
+  const generateQuest = api.generate.generateQuest.useMutation()
+
+  function updateForm(key: string) {
+    return function(e: React.ChangeEvent<HTMLInputElement>) {
+    setForm((prev) =>({
+      ...prev, [key]: e.target.value,
+    }));
+      }
+  }
+
+  function handleFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    // submit form data to backend
+    generateQuest.mutateAsync
+  }
+    
 
 
   return (
@@ -22,16 +39,20 @@ const GenerateTask: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center">
-    <FormGroup>
-    <span>new task</span>
-    <Input onChange={(e) => 
-        setForm((prev) =>({
-            ...prev, prompt: e.target.value}))}
+        <form 
+        className="flex flex-col gap-4"
+        onSubmit={handleFormSubmit}
+        >
+          <FormGroup>
+          <h1>new task</h1>
+          <Input 
+          value={form.prompt}
+          onChange={updateForm('prompt')}
           />
-    <button
-    className="rounded bg-blue-400 px-4 py-2 hover:bg-blue-500"
-    >submit</button>
-    </FormGroup>
+          <button
+          className="rounded bg-blue-400 px-4 py-2 hover:bg-blue-500">submit</button>
+          </FormGroup>
+        </form>
       </main>
     </>
   );
