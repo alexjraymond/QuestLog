@@ -13,7 +13,11 @@ const GenerateTask: NextPage = () => {
       prompt: '',
   })
 
-  const generateQuest = api.generate.generateQuest.useMutation()
+  const generateQuest = api.generate.generateQuest.useMutation({
+    onSuccess(data) {
+      console.log('mutation finished', data)
+    }
+  })
 
   function updateForm(key: string) {
     return function(e: React.ChangeEvent<HTMLInputElement>) {
@@ -26,7 +30,9 @@ const GenerateTask: NextPage = () => {
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     // submit form data to backend
-    generateQuest.mutateAsync
+    generateQuest.mutate({
+      prompt: form.prompt
+    })
   }
     
 
