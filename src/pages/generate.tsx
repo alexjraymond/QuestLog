@@ -1,3 +1,4 @@
+
 import { type NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
@@ -10,14 +11,16 @@ import { api } from "~/utils/api";
 
 
 const GenerateTask: NextPage = () => {
-
   const [form, setForm] = useState({
       prompt: '',
   })
+  const [quest, setQuest] = useState('')
 
   const generateQuest = api.generate.generateQuest.useMutation({
     onSuccess(data) {
       console.log('mutation finished', data)
+      if (!data.returnedQuest) return;
+      setQuest(data.returnedQuest)
     }
   })
 
@@ -40,7 +43,6 @@ const GenerateTask: NextPage = () => {
   const session= useSession();
 
   const isLoggedIn = !!session.data;
-
 
   return (
     <>
@@ -81,6 +83,12 @@ const GenerateTask: NextPage = () => {
             Submit
           </Button>
           </FormGroup>
+
+          <span className="w-[32rem]">
+            
+            {quest}
+
+          </span>
         </form>
       </main>
     </>

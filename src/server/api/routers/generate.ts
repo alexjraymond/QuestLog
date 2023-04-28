@@ -7,6 +7,15 @@ import {
   publicProcedure,
 } from "~/server/api/trpc";
 
+import { Configuration, OpenAIApi } from "openai";
+import { env } from "process";
+
+const configuration = new Configuration({
+  apiKey: env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+
 export const generateRouter = createTRPCRouter({
     generateQuest: protectedProcedure.input(z.object({
         prompt: z.string()
@@ -35,10 +44,22 @@ export const generateRouter = createTRPCRouter({
             })
         }
 
-        // TODO: make a request to dalle api with the prompt the user provides
+        // makes a request to openai api with the prompt the user provides
+
+const response = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: `Turn this typical daily task into a world of warcraft-type quest for a brave adventurer:\n\n${input.prompt}`,
+    temperature: 1,
+    max_tokens: 1672,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  });
+
+  const yourQuest = response.data.choices[0]?.text;
 
         return {
-            message: 'success'
+            returnedQuest: yourQuest
         }
     })
 });
