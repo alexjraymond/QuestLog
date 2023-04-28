@@ -2,6 +2,10 @@
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
+![CleanShot 2023-04-28 at 16 16 28](https://user-images.githubusercontent.com/117477893/235268784-e07078c5-19ca-4e65-9f5a-e549b214079c.gif)
+
+(day 1 gif)
+
 ## What's next? How do I make an app with this?
 
 We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
