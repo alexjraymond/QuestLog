@@ -18,10 +18,11 @@ const openai = new OpenAIApi(configuration);
 
 export const generateRouter = createTRPCRouter({
     generateQuest: protectedProcedure.input(z.object({
-        prompt: z.string()
+        title: z.string(),
+        description: z.string()
     }))
     .mutation(async ({ctx, input}) => {
-        console.log('we are here', input.prompt)
+        console.log('we are here', input.description)
         //verify user has enough credits
         const {count} = await ctx.prisma.user.updateMany({
             where: {
@@ -44,11 +45,11 @@ export const generateRouter = createTRPCRouter({
             })
         }
 
-        // makes a request to openai api with the prompt the user provides
+        // makes a request to openai api with the description the user provides
 
 const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `Turn this typical daily task into a world of warcraft-type quest for a brave adventurer.  Make sure to have a quest name and a quest description:\n\n${input.prompt}`,
+    prompt: `Turn this typical daily task into a world of warcraft-type quest for a brave adventurer.  Make sure to have a quest name and a quest description:\noriginal name: ${input.title}\noriginal description: ${input.description}`,
     temperature: 1,
     max_tokens: 1672,
     top_p: 1,
