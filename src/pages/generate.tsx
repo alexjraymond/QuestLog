@@ -22,14 +22,20 @@ const GenerateTask: NextPage = () => {
     description: '',
   })
 
+  const [task, setTask] = useState({
+    title: '',
+    description: '',
+  })
+
   const generateQuest = api.generate.generateQuest.useMutation({
     onSuccess(data) {
       console.log('mutation finished', data)
       if (!data.returnedQuest) return;
+      // split data into the quest title and description
       const rawQuest = data.returnedQuest
       const questNameMatch = rawQuest.match(/Quest Name:\s*(.+?)\s*Quest Description:/)
       const questDescriptionMatch = rawQuest.match(/Quest Description:\s*(.+)/)
-      const questName = questNameMatch ? questNameMatch[1] : '';
+      const questName = questNameMatch ? questNameMatch[1]?.replace(/['"]+/g, '') : '';
       const questDescription = questDescriptionMatch ? questDescriptionMatch[1] : '';
       console.log(questNameMatch)
       console.log(questDescriptionMatch)
@@ -50,6 +56,10 @@ const GenerateTask: NextPage = () => {
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     // submit form data to backend
+    setTask({
+      title: form.title,
+      description: form.description,
+    })
     generateQuest.mutate({
       title: form.title,
       description: form.description
@@ -92,7 +102,7 @@ const GenerateTask: NextPage = () => {
         onSubmit={handleFormSubmit}
         >
           <FormGroup>
-          <h1>new quest</h1>
+          <p className="prose-xl">new quest</p>
           <Input 
           placeholder='title'
           onChange={updateForm('title')}
@@ -110,8 +120,10 @@ const GenerateTask: NextPage = () => {
           </FormGroup>
 
           <Quest className="w-[32rem]">
-            <p>{quest.title}</p>
+            <h1 className="prose-xl">{quest.title}</h1>
             <p>{quest.description}</p>
+            <h1 className="prose-xl">{task.title}</h1>
+            <p>{task.description}</p>
           </Quest>
         </form>
       </main>
