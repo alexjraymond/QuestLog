@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Button } from "~/component/Button";
 import { FormGroup } from "~/component/FormGroup";
 import { Input } from "~/component/Input";
+import { Quest } from "~/component/Quest";
+import { Toggle } from "~/component/Toggle";
 import { api } from "~/utils/api";
 
 
@@ -38,6 +40,7 @@ const GenerateTask: NextPage = () => {
     generateQuest.mutate({
       prompt: form.prompt
     })
+    setForm({prompt:''})
   }
     
   const session= useSession();
@@ -75,20 +78,21 @@ const GenerateTask: NextPage = () => {
         >
           <FormGroup>
           <h1>new quest</h1>
+          <Input placeholder='title' />
           <Input 
+          placeholder='description'
           value={form.prompt}
           onChange={updateForm('prompt')}
           />
+          <Toggle>Quest?</Toggle>
           <Button>
             Submit
           </Button>
           </FormGroup>
 
-          <span className="w-[32rem]">
-            
+          <Quest className="w-[32rem]">
             {quest}
-
-          </span>
+          </Quest>
         </form>
       </main>
     </>

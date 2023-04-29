@@ -48,7 +48,7 @@ export const generateRouter = createTRPCRouter({
 
 const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `Turn this typical daily task into a world of warcraft-type quest for a brave adventurer:\n\n${input.prompt}`,
+    prompt: `Turn this typical daily task into a world of warcraft-type quest for a brave adventurer.  Make sure to have a quest name and a quest description:\n\n${input.prompt}`,
     temperature: 1,
     max_tokens: 1672,
     top_p: 1,
