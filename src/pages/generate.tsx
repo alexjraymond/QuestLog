@@ -27,9 +27,10 @@ const GenerateTask: NextPage = () => {
     description: '',
   })
 
+  const [successMessage, setSuccessMessage] = useState('')
+
   const generateQuest = api.generate.generateQuest.useMutation({
     onSuccess(data) {
-      console.log('mutation finished', data)
       if (!data.returnedQuest) return;
       // split data into the quest title and description
       const rawQuest = data.returnedQuest
@@ -37,13 +38,23 @@ const GenerateTask: NextPage = () => {
       const questDescriptionMatch = rawQuest.match(/Quest Description:\s*(.+)/)
       const questName = questNameMatch ? questNameMatch[1]?.replace(/['"]+/g, '') : '';
       const questDescription = questDescriptionMatch ? questDescriptionMatch[1] : '';
-      console.log(questNameMatch)
-      console.log(questDescriptionMatch)
+      saveQuestData.mutate({
+        title: task.title,
+        description: task.description,
+        questTitle: questName || '',
+        questDescription: questDescription || ''
+      })
       setQuest({
         title: questName || '',
       description: questDescription || '',
     })}
   })
+
+const saveQuestData = api.generate.createQuest.useMutation({
+  onSuccess() {
+    setSuccessMessage('quest data has been stored successfully!')
+  }
+})
 
   function updateForm(key: string) {
     return function(e: React.ChangeEvent<HTMLInputElement>) {
@@ -52,6 +63,8 @@ const GenerateTask: NextPage = () => {
     }));
       }
   }
+
+
 
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -64,8 +77,10 @@ const GenerateTask: NextPage = () => {
       title: form.title,
       description: form.description
     })
-    console.log('title', form.title, 'desc', form.description)
+    
     setForm({title: '', description:''})
+
+
   }
     
   const session= useSession();
@@ -120,10 +135,11 @@ const GenerateTask: NextPage = () => {
           </FormGroup>
 
           <Quest className="w-[32rem]">
-            <h1 className="prose-xl">{quest.title}</h1>
-            <p>{quest.description}</p>
-            <h1 className="prose-xl">{task.title}</h1>
-            <p>{task.description}</p>
+            <h1 className="prose-xl">quest title {quest.title}</h1>
+            <p>quest description {quest.description}</p>
+            <h1 className="prose-xl">input title {task.title}</h1>
+            <p>input description {task.description}</p>
+            {successMessage && <div className='text-green-500'>{successMessage}</div>}
           </Quest>
         </form>
       </main>

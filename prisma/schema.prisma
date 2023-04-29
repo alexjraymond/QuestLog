@@ -56,7 +56,7 @@ model User {
     credits       Int       @default(100)
     accounts      Account[]
     sessions      Session[]
-    Quest         Quest[]
+    Quests        Quest[]
 }
 
 model VerificationToken {
@@ -68,9 +68,11 @@ model VerificationToken {
 }
 
 model Quest {
-    id       String @id @default(cuid())
-    prompt   String
-    quest    String
-    author   User   @relation(fields: [authorId], references: [id])
-    authorId String
+    id               String  @id @default(cuid())
+    title            String
+    description      String
+    questTitle       String
+    questDescription String
+    User             User?   @relation(fields: [userId], references: [id])
+    userId           String?
 }

@@ -62,5 +62,26 @@ const response = await openai.createCompletion({
         return {
             returnedQuest: yourQuest
         }
-    })
+    }),
+    createQuest: protectedProcedure
+        .input(
+            z.object({
+                title: z.string(),
+                description: z.string(),
+                questTitle: z.string(),
+                questDescription: z.string()
+            })
+        )
+        .mutation(async ({input, ctx }) => {
+            const inputQuest = await ctx.prisma.quest.create({
+                data: {
+                    ...input,
+                }
+            })
+            return inputQuest
+        }),
+    getQuests: protectedProcedure.query(async ({ ctx }) => {
+        const quests = await ctx.prisma.quest.findMany();
+        return quests
+    }),
 });
