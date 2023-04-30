@@ -19,7 +19,7 @@ const openai = new OpenAIApi(configuration);
 export const generateRouter = createTRPCRouter({
     generateQuest: protectedProcedure.input(z.object({
         title: z.string(),
-        description: z.string()
+        description: z.string(),
     }))
     .mutation(async ({ctx, input}) => {
         console.log('we are here', input.description)
@@ -59,8 +59,10 @@ const response = await openai.createCompletion({
 
   const yourQuest = response.data.choices[0]?.text;
 
+
+
         return {
-            returnedQuest: yourQuest
+            returnedQuest: yourQuest,
         }
     }),
     createQuest: protectedProcedure
@@ -69,13 +71,15 @@ const response = await openai.createCompletion({
                 title: z.string(),
                 description: z.string(),
                 questTitle: z.string(),
-                questDescription: z.string()
+                questDescription: z.string(),
+                userId: z.string(),
             })
         )
         .mutation(async ({input, ctx }) => {
             const inputQuest = await ctx.prisma.quest.create({
                 data: {
                     ...input,
+                    userId: input.userId || ctx.session.user.id,
                 }
             })
             return inputQuest

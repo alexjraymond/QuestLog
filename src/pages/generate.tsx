@@ -29,7 +29,15 @@ const GenerateTask: NextPage = () => {
 
   const [successMessage, setSuccessMessage] = useState('')
 
+  const session= useSession();
+
+  const isLoggedIn = !!session.data;
+
+
+
+
   const generateQuest = api.generate.generateQuest.useMutation({
+
     onSuccess(data) {
       if (!data.returnedQuest) return;
       // split data into the quest title and description
@@ -42,7 +50,8 @@ const GenerateTask: NextPage = () => {
         title: task.title,
         description: task.description,
         questTitle: questName || '',
-        questDescription: questDescription || ''
+        questDescription: questDescription || '',
+        userId: session.data?.user.id as string,
       })
       setQuest({
         title: questName || '',
@@ -83,9 +92,6 @@ const saveQuestData = api.generate.createQuest.useMutation({
 
   }
     
-  const session= useSession();
-
-  const isLoggedIn = !!session.data;
 
   return (
     <>
