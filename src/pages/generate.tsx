@@ -8,6 +8,7 @@ import { FormGroup } from "~/component/FormGroup";
 import { Input } from "~/component/Input";
 import { Quest } from "~/component/Quest";
 import { Toggle } from "~/component/Toggle";
+import { useBuyCredits } from "~/hooks/useBuyCredits";
 import { api } from "~/utils/api";
 
 
@@ -33,8 +34,7 @@ const GenerateTask: NextPage = () => {
 
   const isLoggedIn = !!session.data;
 
-
-
+  const { buyCredits } = useBuyCredits()
 
   const generateQuest = api.generate.generateQuest.useMutation({
 
@@ -110,10 +110,20 @@ const saveQuestData = api.generate.createQuest.useMutation({
           </Button>
           )}
         {isLoggedIn && (
+          <>
+                    <Button
+                      onClick={() => {
+                        buyCredits().catch(console.error);
+                      }}
+                    >
+                    Buy Credits
+        
+                  </Button>
           <Button onClick={() => {
             signOut().catch(console.error)}}>
               Logout
           </Button>
+          </>
           )}
 
             {session.data?.user.name}

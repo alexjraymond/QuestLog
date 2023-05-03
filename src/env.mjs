@@ -24,6 +24,10 @@ export const env = createEnv({
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
     OPENAI_API_KEY: z.string(),
+    NEXT_SECRET_KEY: z.string(),
+    HOST_NAME: z.string(),
+    PRICE_ID: z.string(),
+    STRIPE_WEB_HOOK_SECRET: z.string(),
   },
 
   /**
@@ -33,6 +37,7 @@ export const env = createEnv({
    */
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
+    NEXT_PUBLIC_STRIPE_KEY: z.string(),
   },
 
   /**
@@ -47,5 +52,10 @@ export const env = createEnv({
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    NEXT_PUBLIC_STRIPE_KEY: process.env.NEXT_PUBLIC_STRIPE_KEY,
+    NEXT_SECRET_KEY: process.env.NEXT_SECRET_KEY,
+    HOST_NAME: process.env.HOST_NAME,
+    PRICE_ID: process.env.PRICE_ID,
+    STRIPE_WEB_HOOK_SECRET: process.env.STRIPE_WEB_HOOK_SECRET,
   },
 });
