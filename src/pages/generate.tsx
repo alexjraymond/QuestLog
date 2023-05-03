@@ -37,7 +37,6 @@ const GenerateTask: NextPage = () => {
   const { buyCredits } = useBuyCredits()
 
   const generateQuest = api.generate.generateQuest.useMutation({
-
     onSuccess(data) {
       if (!data.returnedQuest) return;
       // split data into the quest title and description
@@ -72,8 +71,6 @@ const saveQuestData = api.generate.createQuest.useMutation({
     }));
       }
   }
-
-
 
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -111,16 +108,15 @@ const saveQuestData = api.generate.createQuest.useMutation({
           )}
         {isLoggedIn && (
           <>
-                    <Button
-                      onClick={() => {
-                        buyCredits().catch(console.error);
-                      }}
-                    >
-                    Buy Credits
-        
-                  </Button>
-          <Button onClick={() => {
-            signOut().catch(console.error)}}>
+            <Button
+              onClick={() => {
+                buyCredits().catch(console.error);
+              }}>
+            Buy Credits
+          </Button>
+          <Button 
+              onClick={() => {
+                signOut().catch(console.error)}}>
               Logout
           </Button>
           </>
