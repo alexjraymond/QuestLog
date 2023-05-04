@@ -25,6 +25,7 @@ return (
         <div>
             <BsTrash />
             <CiEdit />
+            
         </div>
     </li>
     )
