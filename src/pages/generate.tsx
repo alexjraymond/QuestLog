@@ -146,13 +146,8 @@ const saveQuestData = api.generate.createQuest.useMutation({
           </Button>
           </FormGroup>
 
-          <Quest className="w-[32rem]">
-            <h1 className="prose-xl">quest title {quest.title}</h1>
-            <p>quest description {quest.description}</p>
-            <h1 className="prose-xl">input title {task.title}</h1>
-            <p>input description {task.description}</p>
             {successMessage && <div className='text-green-500'>{successMessage}</div>}
-          </Quest>
+
         </form>
       </main>
     </>
