@@ -17,9 +17,9 @@ const HeaderNav = () => {
 
   return (
   <>
-    <header className='dark:bg-gray-900'>
+    <header className='bg-stone-700 text-stone-100'>
       <nav
-      className='container flex items-center justify-between h-11 mx-auto'
+      className='container flex items-center justify-between h-11 mx-auto shadow-md'
       >
         <PrimaryLink href='/'>
           QuestLogLogo

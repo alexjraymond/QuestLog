@@ -30,7 +30,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="container mx-auto flex min-h-screen flex-col items-center mt-6 max-w-screen-md">
 
-        <header className="justify-between flex items-end w-full border-b-2 border-slate-700 pb-2">
+        <header className="justify-between flex items-end w-full border-b border-stone-300 pb-2">
           <h1 className="text-3xl flex">Quests</h1>
           <Button className="flex align-text-bottom">Settings</Button>
         </header>
