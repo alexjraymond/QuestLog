@@ -1,3 +1,3 @@
-export function Quest(props: React.ComponentPropsWithoutRef<"span">) {
-return <span>{props.children}</span>
+export function Quest(props: React.ComponentPropsWithoutRef<"li">) {
+return <li>{props.children}</li>
 } 

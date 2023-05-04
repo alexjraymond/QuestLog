@@ -1,9 +1,22 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { Quest } from "~/component/Quest";
+import { api } from "~/utils/api";
 
+
+interface Quest {
+  id: string
+  title: string
+  description: string
+  questTitle: string
+  questDescription: string
+}
 
 const Home: NextPage = () => {
+  const {data, isLoading: questsLoaded} = api.generate.getQuests.useQuery();
+  console.log(data)
+
   return (
     <>
       <Head>
@@ -12,6 +25,26 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto flex min-h-screen flex-col">
+
+<ul>
+
+
+
+
+<Quest>
+  {data?.map((quest: Quest) => (
+    <Quest key={quest.id} >
+      {quest.questTitle}
+      {quest.questDescription}
+    </Quest>
+  ))}
+
+
+</Quest>
+
+</ul>
+
+
 
       </main>
     </>

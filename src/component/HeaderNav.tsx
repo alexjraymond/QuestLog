@@ -19,13 +19,13 @@ const HeaderNav = () => {
   <>
     <header className='dark:bg-gray-900'>
       <nav
-      className='container flex items-center justify-between h-16 px-4 mx-auto'
+      className='container flex items-center justify-between h-11 px-4 mx-auto'
       >
         <PrimaryLink href='/'>
           QuestLogLogo
         </PrimaryLink>
-    <ul>
-      <li>
+    <ul className=''>
+      <li className=''>
 
       {!isLoggedIn && (
           <Button onClick={() => {
