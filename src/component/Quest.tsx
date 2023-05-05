@@ -24,8 +24,8 @@ export function Quest(props: React.ComponentPropsWithoutRef<"li"> & QuestProps) 
         )}
       </div>
       <div className="flex items-center justify-end space-x-2 px-2">
-        <BsTrash />
-        <CiEdit />
+        <BsTrash size={20} />
+        <CiEdit size={24} />
       </div>
     </li>
   );
