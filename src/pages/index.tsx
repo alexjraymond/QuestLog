@@ -29,24 +29,23 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto flex min-h-screen flex-col items-center mt-6 max-w-screen-md">
-
-        <header className="justify-between flex items-end w-full border-b border-stone-300 pb-2">
-          <h1 className="text-3xl flex">Quests</h1>
-          <Button className="flex align-text-bottom">Settings</Button>
-        </header>
-
-<ul className="">
-  {data?.map((quest: Quest) => (
-    <Quest 
-      key={quest.id} 
-      questTitle={quest.questTitle}
-      questDescription={quest.questDescription}
-      />
-  ))}
-</ul>
-
-
-
+        <section>
+          <header className="justify-between flex items-end w-full border-b border-stone-300 pb-2">
+            <h1 className="text-3xl flex">Quests</h1>
+            <Button className="flex align-text-bottom">Settings</Button>
+          </header>
+          <article>
+            <ul className="">
+              {data?.map((quest: Quest) => (
+                <Quest 
+                  key={quest.id} 
+                  questTitle={quest.questTitle}
+                  questDescription={quest.questDescription}
+                  />
+              ))}
+            </ul>
+          </article>
+        </section>
       </main>
     </>
   );

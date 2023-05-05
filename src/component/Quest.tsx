@@ -1,32 +1,32 @@
 import React from "react";
-import { BsTrash }from 'react-icons/bs'
-import { CiEdit } from 'react-icons/ci'
+import { BsTrash } from "react-icons/bs";
+import { CiEdit } from "react-icons/ci";
 
 interface QuestProps {
-    questTitle: string;
-    questDescription: string;
+  questTitle: string;
+  questDescription?: string;
 }
 
 export function Quest(props: React.ComponentPropsWithoutRef<"li"> & QuestProps) {
-return (
-    <li className="border-b border-stone-300 pb-2 w-full grid grid-rows-2 grid-flow-col gap-x-4 mt-3">
+  return (
+    <li className="border-b border-stone-300 pb-2 w-full grid grid-cols-[auto,1fr,auto] items-center mt-3">
+      <div className="flex items-center px-2">
         <input
-            type="checkbox"
-            className="row-span-2 appearance-none w-4 h-4 border border-stone-900 rounded-full bg-stone-200 checked:bg-emerald-200" 
+          type="checkbox"
+          className="appearance-none w-4 h-4 border border-stone-900 rounded-full bg-stone-200 checked:bg-emerald-200"
+          aria-label={`Mark ${props.questTitle} as completed`}
         />
-        <span 
-            className="col-span-2 text-left">{props.questTitle}
-        </span>
-        <p
-        className="line-clamp-2 row-span-1 text-gray-500"
-        >
-            {props.questDescription}
-        </p>
-        <div>
-            <BsTrash />
-            <CiEdit />
-            
-        </div>
+      </div>
+      <div>
+        <h2 className="text-left block">{props.questTitle}</h2>
+        {props.questDescription && (
+          <p className="line-clamp-2 text-gray-500">{props.questDescription}</p>
+        )}
+      </div>
+      <div className="flex items-center justify-end space-x-2 px-2">
+        <BsTrash />
+        <CiEdit />
+      </div>
     </li>
-    )
-} 
+  );
+}
