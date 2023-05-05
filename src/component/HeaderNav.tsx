@@ -29,8 +29,8 @@ const HeaderNav = () => {
           QuestLogLogo
         </PrimaryLink>
  
-          <ul
-            className='lg:flex space-y-3 lg:space-y-0 lg:space-x-3 transition duration-300'
+        <ul
+            className='hidden lg:flex space-y-3 lg:space-y-0 lg:space-x-3 transition duration-300'
           >
             <li className="">
               {!isLoggedIn && (
@@ -64,6 +64,11 @@ const HeaderNav = () => {
               {session.data?.user.name}
             </li>
           </ul>
+
+
+
+
+
       <Button
         variant='ghost'
         size='tiny'
@@ -74,7 +79,7 @@ const HeaderNav = () => {
             width={35}
             height={35}
             className='border rounded-full p-1 border-stone-100'
-            />
+            />          
       </Button>
       </nav>
     </header>
