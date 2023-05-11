@@ -3,7 +3,6 @@ import PrimaryLink from './PrimaryLink'
 import { Button } from './Button'
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useBuyCredits } from '~/hooks/useBuyCredits';
-import { AiOutlineMenu } from 'react-icons/ai'
 import Image from 'next/image';
 import wizardHat from 'public/images/wizard-hat-stone.png'
 

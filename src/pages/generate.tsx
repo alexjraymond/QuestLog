@@ -141,9 +141,10 @@ const saveQuestData = api.generate.createQuest.useMutation({
           onChange={updateForm('description')}
           />
           <Toggle>Quest?</Toggle>
-          <Button>
+          <Button type="submit">
             Submit
           </Button>
+
           </FormGroup>
 
             {successMessage && <div className='text-green-500'>{successMessage}</div>}
