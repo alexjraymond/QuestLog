@@ -1,7 +1,10 @@
-export function Input(props: React.ComponentPropsWithoutRef<"input">) {
+export function Input(props: React.ComponentPropsWithoutRef<"input"> & {
+    type?: string
+}) {
+
     return <input {...props}
-    type="text"
-    className="focus:outline-none border border-gray-800 light:text-gray-800 px-4 py-2 rounded bg-transparent border-b-blue-400"
+    className="focus:outline-none border break-words text-stone-800 px-4 py-2 rounded bg-transparent border-stone-100 border-b-stone-400"
     >
     </input>
 }
+

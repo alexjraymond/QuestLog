@@ -9,7 +9,7 @@ function getButtonColor(variant?: 'primary' | 'secondary' | 'ghost') {
     switch (variant) {
         case 'primary':
         default:
-            return 'bg-blue-400 hover:bg-blue-500';
+            return 'bg-blue-400 hover:bg-blue-500 text-stone-100';
         case 'secondary':
             return 'bg-green-400 hover:bg-green-500';
         case 'ghost':

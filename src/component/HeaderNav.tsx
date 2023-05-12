@@ -5,6 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useBuyCredits } from '~/hooks/useBuyCredits';
 import Image from 'next/image';
 import wizardHat from 'public/images/wizard-hat-stone.png'
+import Link from 'next/link';
 
 
 
@@ -28,7 +29,10 @@ const HeaderNav = () => {
           QuestLogLogo
         </PrimaryLink>
  
-        <ul
+
+        
+
+ {/* <ul
             className='hidden lg:flex space-y-3 lg:space-y-0 lg:space-x-3 transition duration-300'
           >
             <li className="">
@@ -62,15 +66,14 @@ const HeaderNav = () => {
 
               {session.data?.user.name}
             </li>
-          </ul>
+          </ul> */}
 
-
-
-
+<div className='relative'> 
 
       <Button
         variant='ghost'
         size='tiny'
+        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom"
       >
           <Image 
             src={wizardHat}
@@ -78,8 +81,30 @@ const HeaderNav = () => {
             width={35}
             height={35}
             className='border rounded-full p-1 border-stone-100'
+            onClick={toggleMenu}
             />          
       </Button>
+
+      {menuOpen ? <div className='origin-top-right absolute right-0 mt-2 w-48 bg-stone-500 rounded p-2 flex flex-col'>
+          <span className="block text-sm">{session.data?.user.name}</span>
+
+        <ul className="py-2" aria-labelledby="user-menu-button flex justify-end">
+          <li>
+            <Link href="/generate" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Generate a Quest</Link>
+          </li>
+          <li>
+            <Link href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Quest Log</Link>
+          </li>
+          <li>
+            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Buy Credits</a>
+          </li>
+          <li>
+            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+          </li>
+        </ul></div> 
+       : <></>}
+
+</div>
       </nav>
     </header>
   </>
