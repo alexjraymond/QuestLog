@@ -30,44 +30,6 @@ const HeaderNav = () => {
         </PrimaryLink>
  
 
-        
-
- {/* <ul
-            className='hidden lg:flex space-y-3 lg:space-y-0 lg:space-x-3 transition duration-300'
-          >
-            <li className="">
-              {!isLoggedIn && (
-                <Button
-                  onClick={() => {
-                    signIn().catch(console.error);
-                  }}
-                >
-                  Login
-                </Button>
-              )}
-              {isLoggedIn && (
-                <>
-                  <Button
-                    onClick={() => {
-                      buyCredits().catch(console.error);
-                    }}
-                  >
-                    Buy Credits
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      signOut().catch(console.error);
-                    }}
-                  >
-                    Logout
-                  </Button>
-                </>
-              )}
-
-              {session.data?.user.name}
-            </li>
-          </ul> */}
-
 <div className='relative'> 
 
       <Button
@@ -95,12 +57,31 @@ const HeaderNav = () => {
           <li>
             <Link href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Quest Log</Link>
           </li>
+
+          {isLoggedIn && 
+          <>
           <li>
-            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Buy Credits</a>
+            <a 
+              href="#" 
+              onClick={() => {buyCredits().catch(console.error);}}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Buy Credits</a>
           </li>
           <li>
-            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+            <a 
+              href="#" 
+              onClick={() => {signOut().catch(console.error);}} 
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
           </li>
+          </>
+          }
+ 
+          {!isLoggedIn && 
+          <li>
+            <a 
+              href="#" 
+              onClick={() => {signIn().catch(console.error);}} 
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign In</a>
+          </li>}
         </ul></div> 
        : <></>}
 

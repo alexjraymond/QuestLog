@@ -87,4 +87,14 @@ const response = await openai.createCompletion({
         const quests = await ctx.prisma.quest.findMany();
         return quests
     }),
+    deleteQuest: protectedProcedure
+    .input(z.string())
+    .mutation(async ({input, ctx }) => {
+        const deleteQuest = await ctx.prisma.quest.delete({
+            where: {
+                id: input
+            }
+        })
+        return deleteQuest
+    }),
 });
