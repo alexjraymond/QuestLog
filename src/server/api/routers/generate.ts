@@ -14,6 +14,12 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+const UpdateQuestInput = z.object({
+    id: z.string(),
+    questTitle: z.string().optional(),
+    questDescription: z.string().optional(),
+  });
+
 
 export const generateRouter = createTRPCRouter({
     generateQuest: protectedProcedure.input(z.object({
@@ -96,5 +102,17 @@ const response = await openai.createCompletion({
             }
         })
         return deleteQuest
+    }),
+    updateQuest: protectedProcedure
+    .input(UpdateQuestInput)
+    .mutation(async ({ input, ctx }) => {
+      const updatedQuest = await ctx.prisma.quest.update({
+        where: { id: input.id },
+        data: {
+          questTitle: input.questTitle,
+          questDescription: input.questDescription,
+        },
+      });
+      return updatedQuest;
     }),
 });
