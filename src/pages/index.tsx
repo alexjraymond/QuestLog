@@ -39,6 +39,7 @@ const Home: NextPage = () => {
             <ul className="">
               {data?.map((quest: Quest) => (
                 <Quest 
+                  id={quest.id}
                   key={quest.id} 
                   questTitle={quest.questTitle}
                   questDescription={quest.questDescription}

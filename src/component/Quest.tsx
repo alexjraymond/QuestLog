@@ -7,6 +7,7 @@ import { prisma } from "~/server/db";
 import Trpc from "~/pages/api/trpc/[trpc]";
 
 interface QuestProps {
+  id: string;
   questTitle: string;
   questDescription?: string;
 }
@@ -20,7 +21,9 @@ export function Quest(props: React.ComponentPropsWithoutRef<"li"> & QuestProps) 
   const { mutate: deleteQuest} = api.generate.deleteQuest.useMutation({
 
     onSettled: async () => {
+      console.log('mutating')
       await trpc.generate.getQuests.invalidate()
+
     }   
   });
 
@@ -40,7 +43,9 @@ export function Quest(props: React.ComponentPropsWithoutRef<"li"> & QuestProps) 
         )}
       </div>
       <div className="flex items-center justify-end space-x-2 px-2">
-        <Button onClick={() => {deleteQuest}} variant="ghost">
+        <Button onClick={() => {
+            console.log(`Deleting quest with id: ${props.id}`)
+            deleteQuest(props.id)}} variant="ghost">
         <BsTrash size={20}  /></Button>
         <CiEdit size={24} />
       </div>
