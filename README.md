@@ -1,6 +1,13 @@
-# Create T3 App
+# QuestLog
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+
+more recent functionality gif
+
+![CleanShot 2023-09-18 at 11 19 33](https://github.com/alexjraymond/QuestLog/assets/117477893/d330c806-b02b-4c09-a261-0f549e3e5e7c)
+
+
+
 
 ![CleanShot 2023-04-28 at 16 16 28](https://user-images.githubusercontent.com/117477893/235268784-e07078c5-19ca-4e65-9f5a-e549b214079c.gif)
 
