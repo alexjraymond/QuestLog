@@ -5,17 +5,17 @@ import { api } from "~/utils/api";
 import { Button } from "./Button";
 import { prisma } from "~/server/db";
 import Trpc from "~/pages/api/trpc/[trpc]";
-import { Modal } from "./Modal";
+import Modal from "./Modal";
 
-interface QuestProps {
+interface QuestProps extends React.ComponentPropsWithoutRef<"li"> {
   id: string;
   questTitle: string;
-  questDescription?: string;
+  questDescription: string;
 }
 
 
 
-export function Quest(props: React.ComponentPropsWithoutRef<"li"> & QuestProps) {
+export function Quest(props: QuestProps) {
   const [isModalVisible, setModalVisible] = useState(false);
 
 
