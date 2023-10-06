@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 
 export function Button(props: React.ComponentPropsWithoutRef<"button"> & {
-    variant?: 'primary' | 'secondary' | 'ghost', size?: 'tiny' | 'small' | 'medium' | 'large', 
+    variant?: 'primary' | 'secondary' | 'ghost', 
+    size?: 'tiny' | 'small' | 'medium' | 'large', 
+    tailwind?: string
     type?: string
 }) {
 
@@ -35,10 +37,12 @@ function getButtonSize(size?: 'tiny' | 'small' | 'medium' | 'large') {
 
 const color = getButtonColor(props.variant)
 
+const tailwind = props.tailwind
+
 return (
     <button
         {...props}
-        className={clsx("rounded", color, size)}
+        className={clsx("rounded", color, size, tailwind)}
         type={props.type}
         >
             {props.children}

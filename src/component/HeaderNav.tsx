@@ -21,7 +21,7 @@ const HeaderNav = () => {
 
   return (
   <>
-    <header className='bg-stone-700 text-stone-100'>
+    <header className='bg-zinc-700 text-stone-100'>
       <nav
       className='container flex items-center justify-between h-11 mx-auto shadow-md'
       >
@@ -30,12 +30,13 @@ const HeaderNav = () => {
         </PrimaryLink>
  
 
-<div className='relative'> 
+<div className='relative justify-center align-middle'> 
 
       <Button
         variant='ghost'
         size='tiny'
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom"
+        tailwind="mt-2"
       >
           <Image 
             src={wizardHat}

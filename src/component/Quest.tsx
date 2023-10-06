@@ -42,7 +42,7 @@ export function Quest(props: QuestProps) {
       <div className="flex items-center px-2">
         <input
           type="checkbox"
-          className="appearance-none w-4 h-4 border border-stone-900 rounded-full bg-stone-200 checked:bg-emerald-200"
+          className="appearance-none w-4 h-4 border border-stone-900 rounded-full bg-stone-700 checked:bg-emerald-200"
           aria-label={`Mark ${props.questTitle} as completed`}
         />
       </div>
