@@ -22,7 +22,7 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
           id="defaultModal"
           tabIndex={-1}
           aria-hidden={!isModalVisible}
-          className="bg-neutral-400 p-4 rounded w-1/2"
+          className="bg-neutral-700 p-4 rounded w-1/2"
         >
           <button
             type="button"
@@ -38,7 +38,7 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
                 type="text"
                 value={editableTitle}
                 onChange={(e) => setEditableTitle(e.target.value)}
-                className="mt-1 p-2 w-full rounded border"
+                className="mt-1 p-2 w-full rounded border bg-neutral-500"
               />
             </div>
             <div className="mb-4">
@@ -46,7 +46,7 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
               <textarea
                 value={editableDescription}
                 onChange={(e) => setEditableDescription(e.target.value)}
-                className="mt-1 p-2 w-full h-20 rounded border"
+                className="mt-1 p-2 w-full h-20 rounded border bg-neutral-500"
               ></textarea>
             </div>
           </form>

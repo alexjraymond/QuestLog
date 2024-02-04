@@ -31,7 +31,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="container mx-auto flex min-h-screen flex-col items-center mt-6 max-w-screen-md">
         <section>
-          <header className="justify-between flex items-end w-full border-b border-stone-300 pb-2">
+          <header className="justify-between flex items-end w-full border-b border-neutral-300 pb-2">
             <h1 className="text-3xl flex">Quests</h1>
             <Button className="flex align-text-bottom" variant="ghost"><BsFilterSquare /></Button>
           </header>

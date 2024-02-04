@@ -43,12 +43,12 @@ const HeaderNav = () => {
             alt="avatar image"
             width={35}
             height={35}
-            className='border rounded-full p-1 border-stone-100'
+            className='border rounded-full p-1 border-neutral-100'
             onClick={toggleMenu}
             />          
       </Button>
 
-      {menuOpen ? <div className='origin-top-right absolute right-0 mt-2 w-48 bg-stone-500 rounded p-2 flex flex-col'>
+      {menuOpen ? <div className='origin-top-right absolute right-0 mt-2 w-48 bg-neutral-500 rounded p-2 flex flex-col'>
           <span className="block text-sm">{session.data?.user.name}</span>
 
         <ul className="py-2" aria-labelledby="user-menu-button flex justify-end">

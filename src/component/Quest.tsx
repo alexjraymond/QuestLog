@@ -38,11 +38,11 @@ export function Quest(props: QuestProps) {
 
   return (
     <>
-    <li className="border-b border-stone-300 pb-2 w-full grid grid-cols-[auto,1fr,auto] items-center mt-3">
+    <li className="border-b border-neutral-300 pb-2 w-full grid grid-cols-[auto,1fr,auto] items-center mt-3">
       <div className="flex items-center px-2">
         <input
           type="checkbox"
-          className="appearance-none w-4 h-4 border border-stone-900 rounded-full bg-stone-700 checked:bg-emerald-200"
+          className="appearance-none w-4 h-4 border border-neutral-900 rounded-full bg-neutral-700 checked:bg-emerald-200"
           aria-label={`Mark ${props.questTitle} as completed`}
         />
       </div>
