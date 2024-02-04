@@ -23,7 +23,7 @@ const HeaderNav = () => {
   <>
     <header className=' text-white bg-neutral-800 w-screen'>
       <nav
-      className='flex items-center justify-between h-11 mx-auto shadow-md'
+      className='flex items-center justify-between h-11 mx-auto shadow-md ml-5'
       >
         <PrimaryLink href='/'>
           QuestLogLogo
@@ -36,7 +36,7 @@ const HeaderNav = () => {
         variant='ghost'
         size='tiny'
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom"
-        tailwind="mt-2"
+        tailwind="mt-2  mr-10"
       >
           <Image 
             src={wizardHat}
