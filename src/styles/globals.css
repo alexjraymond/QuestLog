@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-800 font-roboto text-stone-50;
+  @apply bg-white font-roboto text-stone-900;
 }
