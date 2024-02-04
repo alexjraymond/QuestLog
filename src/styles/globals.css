@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white font-roboto text-stone-900;
+  @apply bg-neutral-700 font-roboto text-white;
 }

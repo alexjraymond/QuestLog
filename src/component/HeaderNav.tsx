@@ -21,7 +21,7 @@ const HeaderNav = () => {
 
   return (
   <>
-    <header className=' text-stone-900 bg-white w-screen'>
+    <header className=' text-white bg-neutral-800 w-screen'>
       <nav
       className='flex items-center justify-between h-11 mx-auto shadow-md'
       >

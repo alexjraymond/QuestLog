@@ -22,18 +22,18 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
           id="defaultModal"
           tabIndex={-1}
           aria-hidden={!isModalVisible}
-          className="bg-white p-4 rounded w-1/2"
+          className="bg-neutral-400 p-4 rounded w-1/2"
         >
           <button
             type="button"
             onClick={() => setModalVisible(false)}
-            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            className="text-white bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
           >
             Close
           </button>
           <form>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-600">Quest Title</label>
+              <label className="block text-sm font-medium text-white">Quest Title</label>
               <input
                 type="text"
                 value={editableTitle}
@@ -42,7 +42,7 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-600">Quest Description</label>
+              <label className="block text-sm font-medium text-white">Quest Description</label>
               <textarea
                 value={editableDescription}
                 onChange={(e) => setEditableDescription(e.target.value)}
