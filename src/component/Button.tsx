@@ -15,7 +15,7 @@ function getButtonColor(variant?: 'primary' | 'secondary' | 'ghost') {
         case 'secondary':
             return 'bg-green-400 hover:bg-green-500';
         case 'ghost':
-            return 'bg-transparent hover:bg-gray-200 hover:bg-opacity-20 rounded-full';
+            return 'bg-transparent hover:bg-neutral-200 hover:bg-opacity-20 rounded-full';
     }
 }
 

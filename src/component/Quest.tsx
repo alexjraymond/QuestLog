@@ -49,7 +49,7 @@ export function Quest(props: QuestProps) {
       <div>
         <h2 className="text-left block">{props.questTitle}</h2>
         {props.questDescription && (
-          <p className="line-clamp-2 text-gray-500">{props.questDescription}</p>
+          <p className="line-clamp-2 text-neutral-400">{props.questDescription}</p>
         )}
       </div>
       <div className="flex items-center justify-end space-x-2 px-2">

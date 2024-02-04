@@ -27,7 +27,7 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
           <button
             type="button"
             onClick={() => setModalVisible(false)}
-            className="text-white bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            className="text-white bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-white"
           >
             Close
           </button>

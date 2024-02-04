@@ -53,10 +53,10 @@ const HeaderNav = () => {
 
         <ul className="py-2" aria-labelledby="user-menu-button flex justify-end">
           <li>
-            <Link href="/generate" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Generate a Quest</Link>
+            <Link href="/generate" className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:text-neutral-200 dark:hover:text-white">Generate a Quest</Link>
           </li>
           <li>
-            <Link href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Quest Log</Link>
+            <Link href="/" className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:text-neutral-200 dark:hover:text-white">Quest Log</Link>
           </li>
 
           {isLoggedIn && 
@@ -65,13 +65,13 @@ const HeaderNav = () => {
             <a 
               href="#" 
               onClick={() => {buyCredits().catch(console.error);}}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Buy Credits</a>
+              className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:text-neutral-200 dark:hover:text-white">Buy Credits</a>
           </li>
           <li>
             <a 
               href="#" 
               onClick={() => {signOut().catch(console.error);}} 
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+              className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:text-neutral-200 dark:hover:text-white">Sign out</a>
           </li>
           </>
           }
@@ -81,7 +81,7 @@ const HeaderNav = () => {
             <a 
               href="#" 
               onClick={() => {signIn().catch(console.error);}} 
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign In</a>
+              className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:text-neutral-200 dark:hover:text-white">Sign In</a>
           </li>}
         </ul></div> 
        : <></>}
