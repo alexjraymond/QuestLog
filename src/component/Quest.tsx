@@ -59,7 +59,7 @@ export function Quest(props: QuestProps) {
           <BsTrash size={20}  />
         </Button>
         <Button onClick={() => {
-            console.log('editing quest')
+            setModalVisible(true)
             }} variant="ghost">
           <CiEdit size={24} />
         </Button>

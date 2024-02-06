@@ -65,8 +65,9 @@ const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen,
                 className="mt-1 p-2 w-full h-20 rounded border bg-neutral-500"
               ></textarea>
             </div>
+            <button type="submit" disabled={isLoading}>Save Changes</button>
           </form>
-          <button type="submit" disabled={isLoading}>Save Changes</button>
+
           <button
             type="button"
             onClick={onClose}
