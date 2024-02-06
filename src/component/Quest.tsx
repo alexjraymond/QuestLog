@@ -66,11 +66,19 @@ export function Quest(props: QuestProps) {
       </div>
     </li>
 
-        <Modal  
-          questTitle={props.questTitle} 
-          questDescription={props.questDescription}
-          id={props.id}
-        />
+    {isModalVisible && (
+  <Modal
+    id={props.id}
+    questTitle={props.questTitle}
+    questDescription={props.questDescription}
+    isOpen={isModalVisible}
+    onClose={() => setModalVisible(false)}
+    onUpdated={() => {
+      // Optionally refresh quest list or handle the update
+      console.log("Quest updated");
+    }}
+  />
+)}
       
     </>
   );

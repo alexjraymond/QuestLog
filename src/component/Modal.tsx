@@ -1,15 +1,37 @@
 import React, { useState } from "react";
+import Trpc from "~/pages/api/trpc/[trpc]";
+import { api } from "~/utils/api";
 
 interface QuestProps {
   id: string;
   questTitle: string;
   questDescription: string;
+  isOpen: boolean;
+  onClose: () => void;
+  onUpdated?: () => void;
 }
 
-const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
+const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen, onClose, onUpdated }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [editableTitle, setEditableTitle] = useState(questTitle);
   const [editableDescription, setEditableDescription] = useState(questDescription);
+
+  const { mutate: updateQuest, isLoading } = api.generate.updateQuest.useMutation({
+    onSuccess: () => {
+      // Optionally refresh quest list or trigger any side effect after successful update
+      if (onUpdated) onUpdated();
+      onClose(); // Close the modal on successful update
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent default form submission
+    updateQuest({
+      id,
+      questTitle: editableTitle,
+      questDescription: editableDescription,
+    });
+  };
 
   return (
     <>
@@ -24,14 +46,8 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
           aria-hidden={!isModalVisible}
           className="bg-neutral-700 p-4 rounded w-1/2"
         >
-          <button
-            type="button"
-            onClick={() => setModalVisible(false)}
-            className="text-white bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-white"
-          >
-            Close
-          </button>
-          <form>
+
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-sm font-medium text-white">Quest Title</label>
               <input
@@ -50,6 +66,14 @@ const Modal: React.FC<QuestProps> = ({ questTitle, questDescription }) => {
               ></textarea>
             </div>
           </form>
+          <button type="submit" disabled={isLoading}>Save Changes</button>
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-white bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-white"
+          >
+            Close
+          </button>
         </div>
       </div>
     </>
