@@ -74,7 +74,6 @@ export function Quest(props: QuestProps) {
     isOpen={isModalVisible}
     onClose={() => setModalVisible(false)}
     onUpdated={() => {
-      // Optionally refresh quest list or handle the update
       console.log("Quest updated");
     }}
   />

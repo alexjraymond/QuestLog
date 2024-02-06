@@ -12,7 +12,6 @@ interface QuestProps {
 }
 
 const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen, onClose, onUpdated }) => {
-  const [isModalVisible, setModalVisible] = useState(false);
   const [editableTitle, setEditableTitle] = useState(questTitle);
   const [editableDescription, setEditableDescription] = useState(questDescription);
 
@@ -33,17 +32,17 @@ const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen,
     });
   };
 
+  if (!isOpen) return null;
+
   return (
     <>
-      <button onClick={() => setModalVisible(true)}>Open Modal</button>
       <div
-        className={`fixed inset-0 flex items-center justify-center z-50 ${isModalVisible ? 'block' : 'hidden'}`}
+        className={`fixed inset-0 flex items-center justify-center z-50 ${isOpen ? 'block' : 'hidden'}`}
         style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
         <div
           id="defaultModal"
           tabIndex={-1}
-          aria-hidden={!isModalVisible}
           className="bg-neutral-700 p-4 rounded w-1/2"
         >
 
@@ -79,6 +78,7 @@ const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen,
       </div>
     </>
   );
+
 };
 
 export default Modal;
