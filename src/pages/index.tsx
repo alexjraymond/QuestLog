@@ -5,6 +5,7 @@ import { Button } from "~/component/Button";
 import { Quest } from "~/component/Quest";
 import { api } from "~/utils/api";
 import { BsFilterSquare } from 'react-icons/bs'
+import { useEffect, useState } from "react";
 // import dayjs from "dayjs"
 
 // dayjs().format()
@@ -20,7 +21,25 @@ interface Quest {
 
 const Home: NextPage = () => {
   const {data, isLoading: questsLoaded} = api.generate.getQuests.useQuery();
-  console.log(data)
+  const [quests, setQuests] = useState<Quest[]>([]);
+
+  useEffect(() => {
+    if (data) {
+      setQuests(data);
+    }
+  }, [data]);
+
+  const handleQuestUpdated = (updatedQuest: { id: string; }) => {
+    console.log("handleQuestUpdated called with", updatedQuest);
+    const updatedQuests = quests.map(quest => {
+      if (quest.id === updatedQuest.id) {
+        return { ...quest, ...updatedQuest };
+      }
+      return quest;
+    });
+  
+    setQuests(updatedQuests);
+  };
 
   return (
     <>
@@ -37,13 +56,14 @@ const Home: NextPage = () => {
           </header>
           <article>
             <ul className="">
-              {data?.map((quest: Quest) => (
+              {quests.map((quest: Quest) => (
                 <Quest 
                   id={quest.id}
-                  key={quest.id} 
+                  key={quest.id}
                   questTitle={quest.questTitle}
                   questDescription={quest.questDescription}
-                  />
+                  onUpdated={handleQuestUpdated}
+                />
               ))}
             </ul>
           </article>

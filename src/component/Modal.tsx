@@ -8,7 +8,7 @@ interface QuestProps {
   questDescription: string;
   isOpen: boolean;
   onClose: () => void;
-  onUpdated?: () => void;
+  onUpdated?: (updatedQuest: { id: string; questTitle: string; questDescription: string }) => void;
 }
 
 const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen, onClose, onUpdated }) => {
@@ -17,11 +17,13 @@ const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen,
 
   const { mutate: updateQuest, isLoading } = api.generate.updateQuest.useMutation({
     onSuccess: () => {
-      // Optionally refresh quest list or trigger any side effect after successful update
-      if (onUpdated) onUpdated();
-      onClose(); // Close the modal on successful update
+      if (onUpdated) {
+        console.log("Updating quest with", { id, questTitle: editableTitle, questDescription: editableDescription });
+        onUpdated({ id, questTitle: editableTitle, questDescription: editableDescription });
+      }
+      onClose(); 
     },
-  });
+});
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // Prevent default form submission
@@ -30,7 +32,7 @@ const Modal: React.FC<QuestProps> = ({ id, questTitle, questDescription, isOpen,
       questTitle: editableTitle,
       questDescription: editableDescription,
     });
-  };
+};
 
   if (!isOpen) return null;
 

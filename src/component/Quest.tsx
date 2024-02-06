@@ -11,6 +11,7 @@ interface QuestProps extends React.ComponentPropsWithoutRef<"li"> {
   id: string;
   questTitle: string;
   questDescription: string;
+  onUpdated: (updatedQuest: { id: string; questTitle: string; questDescription: string }) => void;
 }
 
 
@@ -73,9 +74,7 @@ export function Quest(props: QuestProps) {
     questDescription={props.questDescription}
     isOpen={isModalVisible}
     onClose={() => setModalVisible(false)}
-    onUpdated={() => {
-      console.log("Quest updated");
-    }}
+    onUpdated={props.onUpdated} // Make sure this is correctly passed
   />
 )}
       
