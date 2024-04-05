@@ -74,7 +74,7 @@ export function Quest(props: QuestProps) {
     questDescription={props.questDescription}
     isOpen={isModalVisible}
     onClose={() => setModalVisible(false)}
-    onUpdated={props.onUpdated} // Make sure this is correctly passed
+    onUpdated={props.onUpdated}
   />
 )}
       
