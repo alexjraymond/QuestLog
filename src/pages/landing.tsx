@@ -3,13 +3,15 @@ import React from 'react'
 import Hero from '~/component/Hero'
 import Testimonial from '~/component/Testimonial'
 import Gandalf from 'public/images/gandalf.png'
+import TestimonialsContainer from '~/component/TestimonialsContainer'
 
 const Landing: NextPage = () => {
 
   const testimonials = [
     {avatar: '../../public/images/gandalf.png', name: 'Gandalf', position: 'The Grey', testimonial: 'it helped me take the hobbits to isengard!'  },
     {avatar: Gandalf, name: 'Gandalf', position: 'The Grey', testimonial: 'it helped me take the hobbits to isengard!'  },
-    {avatar: Gandalf, name: 'Gandalf', position: 'The Grey', testimonial: 'it helped me take the hobbits to isengard!'  }
+    {avatar: Gandalf, name: 'Gandalf', position: 'The Grey', testimonial: 'it helped me take the hobbits to isengard!'  },
+    {avatar: Gandalf, name: 'Gandalf', position: 'The Grey', testimonial: 'it helped me take the hobbits to isengard!'  },
 
   ]
 
@@ -17,18 +19,8 @@ const Landing: NextPage = () => {
 
   return (
     <>
-    <Hero />
-    <div className="testimonials-container">
-      {testimonials.map((t, index) => (
-        <Testimonial 
-          key={index}
-          avatar={t.avatar}
-          name={t.name}
-          position={t.position}
-          testimonial={t.testimonial}
-        />
-      ))}
-    </div>
+      <Hero />
+      <TestimonialsContainer />
     </>
   )
 }
