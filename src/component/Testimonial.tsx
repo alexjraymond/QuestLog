@@ -1,10 +1,11 @@
 import React from 'react'
 import gandalf from '../../public/images/gandalf.png'
+import { AiFillStar } from "react-icons/ai";
 
 interface TestimonialProps {
     avatar: string;
     name: string;
-    position: string;
+    at: string;
     testimonial: string;
   }
 
@@ -23,8 +24,14 @@ interface TestimonialProps {
               </div>
             </header> {/*FIX IMAGE */} 
             <div className='flex items-center'>
+            <AiFillStar className='h-5 w-5 text-yellow-400' />
+            <AiFillStar className='h-5 w-5 text-yellow-400' />
+            <AiFillStar className='h-5 w-5 text-yellow-400' />
+            <AiFillStar className='h-5 w-5 text-yellow-400' />
+            <AiFillStar className='h-5 w-5 text-yellow-400' />
             </div>
             <p className='mt-6 text-lg font-medium'>
+              insert testimonial here
             </p>
           </div>
         </div>
