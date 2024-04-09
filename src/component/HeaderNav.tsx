@@ -6,7 +6,7 @@ import { useBuyCredits } from '~/hooks/useBuyCredits';
 import Image from 'next/image';
 import wizardHat from 'public/images/wizard-hat-stone.png'
 import Link from 'next/link';
-
+import QuestLogLogo from 'public/images/questlog_logo_1.png'
 
 
 const HeaderNav = () => {
@@ -25,9 +25,13 @@ const HeaderNav = () => {
       <nav
       className='flex items-center justify-between h-11 mx-auto shadow-md ml-5'
       >
-        <PrimaryLink href='/'>
-          QuestLogLogo
-        </PrimaryLink>
+        <Image 
+          src={QuestLogLogo}
+          alt='wizardpic'
+          width={30}
+          height={30}
+        >
+        </Image>
  
 
 <div className='relative justify-center align-middle'> 

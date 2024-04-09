@@ -17,3 +17,14 @@ let users switch between quests or their prompt text for whole list
 # ideas
 
 import and render navbar/footer in \_app.tsx
+
+const x = 2
+let y = 4
+
+function update(arg) {
+return Math.random() + y \* arg
+}
+
+y = 2;
+
+const result = update(x)
