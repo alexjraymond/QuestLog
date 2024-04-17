@@ -105,7 +105,7 @@ const saveQuestData = api.generate.createQuest.useMutation({
         onSubmit={handleFormSubmit}
         >
 
-          <h1 className="text-4xl">Let's generate your quest.</h1>
+          <h1 className="text-4xl">Let&apos;s generate your quest.</h1>
           <p>Results may vary!  We are working on refining quest results, but here are a few tips to use to help out!</p>
             <ul>
               <li>cool</li>
