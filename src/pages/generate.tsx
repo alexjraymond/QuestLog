@@ -104,6 +104,16 @@ const saveQuestData = api.generate.createQuest.useMutation({
         className="flex flex-col gap-4 mt-10 w-full sm:w-3/4 h-full xl:w-1/2"
         onSubmit={handleFormSubmit}
         >
+
+          <h1 className="text-4xl">Let's generate your quest.</h1>
+          <p>Results may vary!  We are working on refining quest results, but here are a few tips to use to help out!</p>
+            <ul>
+              <li>cool</li>
+              <li>cool</li>
+              <li>cool</li>
+              <li>cool</li>
+            </ul>
+
           <FormGroup>
           <p className="prose-xl">Add a Quest</p>
           <Input 
@@ -117,7 +127,7 @@ const saveQuestData = api.generate.createQuest.useMutation({
           value={form.description}
           onChange={updateForm('description')}
           />
-          <Toggle>Convert to a Quest?</Toggle>
+          <Toggle>Convert to a Quest? (1 Credit)</Toggle>
           <div
           className="justify-end flex"
           >
