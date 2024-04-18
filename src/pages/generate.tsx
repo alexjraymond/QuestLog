@@ -108,10 +108,9 @@ const saveQuestData = api.generate.createQuest.useMutation({
           <h1 className="text-4xl">Let&apos;s generate your quest.</h1>
           <p>Results may vary!  We are working on refining quest results, but here are a few tips to use to help out!</p>
             <ul>
-              <li>cool</li>
-              <li>cool</li>
-              <li>cool</li>
-              <li>cool</li>
+              <li>Keep each quest to one general task</li>
+              <li>Be Specific! E.g. Use the name of the grocery store you&apos;re planning to go to</li>
+              <li>Have fun with the descriptions</li>
             </ul>
 
           <FormGroup>
