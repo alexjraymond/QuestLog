@@ -121,7 +121,7 @@ const saveQuestData = api.generate.createQuest.useMutation({
           value={form.title}
           />
           <textarea 
-          className="block p-2.5 w-full bg-neutral-100 resize-none border-b-neutral-400 border border-neutral-100"
+          className="block p-2.5 w-full text-black bg-neutral-100 resize-none border-b-neutral-400 border border-neutral-100"
           placeholder='description'
           value={form.description}
           onChange={updateForm('description')}
