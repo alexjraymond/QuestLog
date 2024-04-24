@@ -16,7 +16,7 @@ interface TestimonialProps {
           <div className='mb-5 block'>
             <header className='-m-2 mb-4 flex flex-wrap'>
               <div className='w-auto p-2'>
-                <img src={gandalf} alt='gandalf' />
+                {/* <img src={gandalf} alt='gandalf' /> */}
               </div>
               <div className='w-auto p-2'>
                 <h3 className='font-semibold leading-normal'>Gandalf</h3>

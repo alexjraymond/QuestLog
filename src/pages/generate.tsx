@@ -85,7 +85,7 @@ const saveQuestData = api.generate.createQuest.useMutation({
     
     setForm({title: '', description:''})
 
-
+    console.log('form submit consolelog')
   }
     
 
