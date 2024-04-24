@@ -9,6 +9,8 @@ const TestimonialsContainer = () => {
             <Testimonial />
             <Testimonial />
             <Testimonial />
+            <Testimonial />
+            <Testimonial />
         </div>
     </div>
   )

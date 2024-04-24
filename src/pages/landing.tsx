@@ -19,8 +19,12 @@ const Landing: NextPage = () => {
 
   return (
     <>
-      <Hero />
-      <TestimonialsContainer />
+      <div
+      className='container mx-auto px-4 flex flex-col align-center justify-center max-w-4xl'
+      >
+        <Hero />
+        <TestimonialsContainer />
+      </div>
     </>
   )
 }
