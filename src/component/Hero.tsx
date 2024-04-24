@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
             <PrimaryLinkButton href={'/generate'}>Start your quests!</PrimaryLinkButton>
           </div>
           <Image       
-            src="/../public/images/hero-image-1.png"
+            src="/../public/images/questlog_hero_image.png"
             width={500}
             height={500}
             alt="Picture of the author" 
